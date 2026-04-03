@@ -1,9 +1,4 @@
-/**
- * One URL per tool icon in the Tech Stack table (`docs/github-profile-readme-fragment.html`).
- * Total: 47 — matches the 47 `<img>` tool logos in that table (not stats/social/banner).
- * Maven: raw GitHub (README `blob` URL serves HTML). Microservices: local SVG — Datatron’s
- * remote hero graphic is illegible at hero-icon size.
- */
+/** Hero backdrop icons (README tech table minus Microservices). Maven uses raw GitHub, not `blob`. */
 export const TECH_STACK_FLOAT_URLS: readonly string[] = [
   "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
   "https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg",
@@ -30,7 +25,6 @@ export const TECH_STACK_FLOAT_URLS: readonly string[] = [
   "https://upload.wikimedia.org/wikipedia/commons/d/de/Mocha_logo.svg",
   "https://avatars.githubusercontent.com/u/320565?s=200&v=4",
   "https://www.iconpacks.net/icons/free-icons-6/free-rest-api-blue-logo-icon-22099.png",
-  "/icons/microservices.svg",
   "https://www.jenkins.io/images/logos/jenkins/jenkins.png",
   /* Canonical path after docker.com redirect — avoids occasional CDN/redirect edge cases */
   "https://www.docker.com/app/uploads/2022/03/Moby-logo.png",

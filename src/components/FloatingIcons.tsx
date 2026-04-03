@@ -4,15 +4,6 @@ import { TECH_STACK_FLOAT_URLS } from "../data/techStackFloatUrls";
 import { computeIconLayouts } from "../utils/iconLayout";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 
-/** Root-relative `/public` paths must respect Vite `base` (e.g. GitHub Pages /repo/). */
-function resolveIconSrc(src: string): string {
-  if (/^https?:\/\//i.test(src)) return src;
-  if (src.startsWith("/")) {
-    return `${import.meta.env.BASE_URL}${src.slice(1)}`;
-  }
-  return src;
-}
-
 function splitMotionStyle(style: CSSProperties): {
   anchor: CSSProperties;
   drift: CSSProperties;
@@ -130,7 +121,7 @@ export function FloatingIcons({ visible }: FloatingIconsProps) {
               <span className="hero__icon-wiggle">
                 <img
                   className="hero__icon-img"
-                  src={resolveIconSrc(src)}
+                  src={src}
                   alt=""
                   loading="lazy"
                   decoding="async"

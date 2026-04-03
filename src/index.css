@@ -52,7 +52,8 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  /* Don’t clip title/cursor when the name wraps — only clip floating icons (see backdrop). */
+  overflow-x: hidden;
   padding: 1.5rem;
 }
 
@@ -62,6 +63,7 @@ body {
   z-index: 0;
   pointer-events: none;
   opacity: 0;
+  overflow: hidden;
   /* No fade on the layer — icons are the only entrance (twinkle in like stars). */
 }
 
@@ -166,15 +168,20 @@ body {
   }
 }
 
+/* Never fully off — avoids “caret missing” when blink lines up with typing on the last word. */
 @keyframes typewriter-cursor {
   0%,
-  49% {
+  45% {
     opacity: 1;
   }
 
   50%,
+  95% {
+    opacity: 0.35;
+  }
+
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -183,28 +190,40 @@ body {
   z-index: 1;
 }
 
+/* Single-line name + horizontal scroll on tiny viewports — avoids wrap bugs hiding the caret. */
+.hero__headline {
+  margin: 0;
+  font: inherit;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: center;
+  scrollbar-width: none;
+}
+
+.hero__headline::-webkit-scrollbar {
+  display: none;
+}
+
 .animated-name {
+  display: inline-block;
   font-family: var(--font-name);
   font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--fg);
+  white-space: nowrap;
 }
 
-.animated-name__type {
-  white-space: pre-wrap;
-}
-
+/* Border caret: more reliable than a thin background strip at some font sizes / line wraps. */
 .animated-name__cursor {
   display: inline-block;
-  width: 0.08em;
-  min-width: 2px;
-  height: 0.92em;
-  margin-left: 0.04em;
-  vertical-align: -0.06em;
-  background-color: currentcolor;
-  animation: typewriter-cursor 1.7s step-end infinite;
+  width: 0;
+  height: 0.88em;
+  margin-left: 0.06em;
+  vertical-align: -0.1em;
+  border-left: max(2px, 0.09em) solid currentcolor;
+  animation: typewriter-cursor 1.6s step-end infinite;
 }
 
 .animated-name--static .animated-name__cursor {
