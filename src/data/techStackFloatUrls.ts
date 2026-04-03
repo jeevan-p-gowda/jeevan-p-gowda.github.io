@@ -1,0 +1,57 @@
+/**
+ * One URL per tool icon in the Tech Stack table (`docs/github-profile-readme-fragment.html`).
+ * Total: 47 — matches the 47 `<img>` tool logos in that table (not stats/social/banner).
+ * Maven: raw GitHub (README `blob` URL serves HTML). Microservices: local SVG — Datatron’s
+ * remote hero graphic is illegible at hero-icon size.
+ */
+export const TECH_STACK_FLOAT_URLS: readonly string[] = [
+  "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg",
+  /* Dark variant so the mark stays visible on a light/pearl background */
+  "https://bashlogo.com/img/symbol/svg/full_colored_dark.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
+  "https://avatars.githubusercontent.com/u/27804?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/3/30/React_Logo_SVG.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg",
+  "https://playwright.dev/img/playwright-logo.svg",
+  "https://avatars.githubusercontent.com/u/983927?s=200&v=4",
+  "https://avatars.githubusercontent.com/u/19369327?s=200&v=4",
+  "https://avatars.githubusercontent.com/u/8908513?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/a/aa/Requests_Python_Logo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/b/ba/Pytest_logo.svg",
+  "https://avatars.githubusercontent.com/u/12528662?s=200&v=4",
+  "https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo%402x.png",
+  "https://avatars.githubusercontent.com/u/874086?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/d/de/Mocha_logo.svg",
+  "https://avatars.githubusercontent.com/u/320565?s=200&v=4",
+  "https://www.iconpacks.net/icons/free-icons-6/free-rest-api-blue-logo-icon-22099.png",
+  "/icons/microservices.svg",
+  "https://www.jenkins.io/images/logos/jenkins/jenkins.png",
+  /* Canonical path after docker.com redirect — avoids occasional CDN/redirect edge cases */
+  "https://www.docker.com/app/uploads/2022/03/Moby-logo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+  "https://avatars.githubusercontent.com/u/44036562?s=200&v=4",
+  "https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_maven.svg",
+  "https://avatars.githubusercontent.com/u/124156?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg",
+  "https://docs.astral.sh/uv/assets/logo-letter.svg",
+  "https://avatars.githubusercontent.com/u/22247014?s=200&v=4",
+  "https://logos-world.net/wp-content/uploads/2023/03/Atlassian-Logo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg",
+  "https://www.testrail.com/wp-content/uploads/2022/12/TestRail_Logo_Main_01.svg",
+  "https://avatars.githubusercontent.com/u/31894430?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg",
+  "https://avatars.githubusercontent.com/u/10251060?s=200&v=4",
+  "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/8/84/Apple_Computer_Logo_rainbow.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg",
+  "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+];

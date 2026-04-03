@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <!-- Simple connected services mark  readable at small sizes on dark backgrounds -->
+  <circle cx="32" cy="14" r="7" stroke="#ff9500" stroke-width="2.5"/>
+  <circle cx="14" cy="50" r="7" stroke="#ff9500" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="7" stroke="#ff9500" stroke-width="2.5"/>
+  <path d="M28 19L17 43" stroke="#ff9500" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M36 19L47 43" stroke="#ff9500" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M21 50h22" stroke="#ff9500" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+</svg>

@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&family=Dancing+Script:wght@400;600&display=swap");
+
+/* Name line: JetBrains Mono SemiBold from public/fonts (OFL: public/fonts/OFL.txt). */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --fg: #ff9500;
+  --muted: rgba(255, 149, 0, 0.62);
+  --font-ui: "DM Sans", system-ui, sans-serif;
+  --font-name: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+  --font-tagline: "Dancing Script", "Segoe Script", "Apple Chancery", cursive;
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 50% -20%, rgba(255, 149, 0, 0.07), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(255, 149, 0, 0.05), transparent 45%),
+    linear-gradient(165deg, var(--bg) 0%, var(--bg-elevated) 55%, var(--bg) 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  /* No fade on the layer — icons are the only entrance (twinkle in like stars). */
+}
+
+.hero__backdrop--visible {
+  opacity: 1;
+}
+
+/* Stagger via --star-delay; `both` keeps 0% keyframe during delay (no “already visible” flash). */
+.hero__icon-anchor--star {
+  animation: icon-star-in 1.05s cubic-bezier(0.25, 0.9, 0.35, 1) var(--star-delay, 0s) both;
+}
+
+@keyframes icon-star-in {
+  0% {
+    opacity: 0;
+    filter: blur(5px) brightness(0.4);
+    transform: translate(-50%, -50%) scale(0.08);
+  }
+
+  /* Brief pinprick / twinkle */
+  35% {
+    opacity: 0.85;
+    filter: blur(0) brightness(1.35);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  100% {
+    opacity: 0.38;
+    filter: blur(0) brightness(1);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.hero__icon-anchor--no-motion {
+  opacity: 0.38;
+  transform: translate(-50%, -50%);
+}
+
+.hero__icon-anchor {
+  position: absolute;
+}
+
+.hero__icon-drift {
+  animation: hero-drift var(--drift-dur, 44s) linear infinite;
+  animation-delay: var(--drift-delay, 0s);
+  will-change: transform;
+}
+
+.hero__icon-wiggle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: hero-wiggle 5.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero__icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(0.2) brightness(1.15);
+}
+
+.hero__backdrop--static .hero__icon-drift,
+.hero__backdrop--static .hero__icon-wiggle {
+  animation: none;
+}
+
+/* Peak ~±10px drift + wiggle — keep `driftMarginPx` in iconLayout.ts in sync */
+@keyframes hero-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(9px, -7px) rotate(1.8deg);
+  }
+
+  45% {
+    transform: translate(-8px, 8px) rotate(-1.4deg);
+  }
+
+  70% {
+    transform: translate(6px, 5px) rotate(1deg);
+  }
+
+  88% {
+    transform: translate(-5px, -4px) rotate(-0.6deg);
+  }
+}
+
+@keyframes hero-wiggle {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(4px, -3px) rotate(3deg);
+  }
+}
+
+@keyframes typewriter-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-name {
+  font-family: var(--font-name);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--fg);
+}
+
+.animated-name__type {
+  white-space: pre-wrap;
+}
+
+.animated-name__cursor {
+  display: inline-block;
+  width: 0.08em;
+  min-width: 2px;
+  height: 0.92em;
+  margin-left: 0.04em;
+  vertical-align: -0.06em;
+  background-color: currentcolor;
+  animation: typewriter-cursor 1.7s step-end infinite;
+}
+
+.animated-name--static .animated-name__cursor {
+  display: none;
+}
+
+.layout {
+  text-align: center;
+  max-width: 46rem;
+}
+
+.hero__title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero__tagline {
+  margin: 0;
+  font-family: var(--font-tagline);
+  font-size: clamp(1.35rem, 4.5vw, 2rem);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
+  pointer-events: none;
+}
+
+.hero__tagline--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__tagline {
+    transition: none;
+    transform: none;
+  }
+}
