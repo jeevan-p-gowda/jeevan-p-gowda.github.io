@@ -33,17 +33,12 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Set asset base path for GitHub Pages
-        run: |
-          NAME="${{ github.event.repository.name }}"
-          if [[ "$NAME" == *.github.io ]]; then
-            echo "GITHUB_PAGES_BASE=/" >> "$GITHUB_ENV"
-          else
-            echo "GITHUB_PAGES_BASE=/$NAME/" >> "$GITHUB_ENV"
-          fi
-
       - name: Build
-        run: yarn build
+        env:
+          GITHUB_PAGES_BASE: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
+        run: |
+          echo "Vite base: $GITHUB_PAGES_BASE"
+          yarn build
 
       - uses: actions/upload-pages-artifact@v3
         with:
