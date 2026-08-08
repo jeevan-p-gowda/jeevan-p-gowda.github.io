@@ -1,6 +1,17 @@
 # jeevan-website
 
-Personal site: gradient hero, floating tech-stack icons, and a staggered **Jeevan Gowda** name animation (Vite + React + TypeScript).
+Personal single-page portfolio for **Jeevan Gowda** — software engineer & SDET.
+Dark + amber theme, framer-motion animation, sections for hero, about, tech-stack
+showcase, selected work, and contact (Vite + React 19 + TypeScript).
+
+## Structure
+
+- `src/App.tsx` — page shell composing the section components.
+- `src/components/` — `Nav`, `Hero`, `About`, `TechStack`, `Work`, `Contact`, plus the
+  shared `Reveal` scroll-in wrapper.
+- `src/data/content.ts` — all editable content: tech groups, projects, socials, roles.
+- `src/lib/motion.ts` — shared easing token.
+- `src/index.css` — design tokens + all component styles.
 
 ## Prerequisites
 
@@ -11,13 +22,19 @@ Personal site: gradient hero, floating tech-stack icons, and a staggered **Jeeva
 
 The repo uses the usual Vite split: root [`tsconfig.json`](tsconfig.json) references [`tsconfig.app.json`](tsconfig.app.json) (app sources) and [`tsconfig.node.json`](tsconfig.node.json) (Vite config). This supports `tsc -b` in the build script.
 
-## Hero display font
+## Fonts
 
-The animated name uses **[JetBrains Mono](https://www.jetbrains.com/lp/mono/) SemiBold** via [`public/fonts/JetBrainsMono-SemiBold.woff2`](public/fonts/JetBrainsMono-SemiBold.woff2) (SIL OFL: [`public/fonts/OFL.txt`](public/fonts/OFL.txt)). To change fonts, update `@font-face` and `--font-name` in [`src/index.css`](src/index.css).
+Body / UI uses **[Inter](https://fonts.google.com/specimen/Inter)** (Google Fonts). Technical
+accents (brand, eyebrows, code-style labels) use **[JetBrains Mono](https://www.jetbrains.com/lp/mono/) SemiBold**
+via [`public/fonts/JetBrainsMono-SemiBold.woff2`](public/fonts/JetBrainsMono-SemiBold.woff2)
+(SIL OFL: [`public/fonts/OFL.txt`](public/fonts/OFL.txt)). To change fonts, update the imports
+and `--font-ui` / `--font-mono` tokens in [`src/index.css`](src/index.css).
 
-## Floating tech icons
+## Tech stack showcase
 
-All **Tech Stack** icons from your README table are listed in [`src/data/techStackFloatUrls.ts`](src/data/techStackFloatUrls.ts) and rendered as `<img>`. Edit that file to swap URLs or point to files under `public/` (e.g. `/icons/...`).
+The grouped tech grid and marquee ribbon are driven by `TECH_GROUPS` in
+[`src/data/content.ts`](src/data/content.ts). Edit that file to add/remove tools or swap
+icon URLs (point them at files under `public/` if you prefer to self-host).
 
 ## GitHub README HTML fragment
 
